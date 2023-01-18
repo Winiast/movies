@@ -1,10 +1,14 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client'
 
+import Header from './components/Header'
+import Movies from './components/Movies'
+
 const App = () => {
   return (
     <div>
-      <h1>Hello, React!</h1>
+      <Header />
+      <Movies />
     </div>
   )
 }
