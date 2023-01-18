@@ -7,10 +7,9 @@ const Movies = () => {
 
   useEffect(() => {
     const requestTrendingMovies = async () => {
-      const response = await fetch(`${API_URL}/trending/movie/day?api_key=${MOVIES_DB_KEY}`) // Trocar pela chave
-
-      console.log(import.meta.env)
+      const response = await fetch(`${API_URL}/trending/movie/day?api_key=${import.meta.env.VITE_MOVIES_DB_KEY}`)
       const { results } = await response.json()
+
       setTrendingMovies(results)
     }
 
