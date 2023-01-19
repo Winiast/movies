@@ -13,7 +13,6 @@ const Movies = () => {
       const { results } = await response.json()
 
       setTrendingMovies(results)
-      console.log(results)
     }
 
     requestTrendingMovies()
