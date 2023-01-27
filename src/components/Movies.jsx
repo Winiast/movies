@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
+import '../styles/Movies.css'
 
 import { API_URL } from '../config'
+import Card from './Card'
 
 const Movies = () => {
   const [trendingMovies, setTrendingMovies] = useState([])
@@ -16,10 +18,20 @@ const Movies = () => {
     requestTrendingMovies()
   }, [])
 
+  if (!trendingMovies.length) {
+    return <p>Carregando...</p>
+  }
+
   return (
-    <div>
+    <div className="movies">
       {trendingMovies.map((movie) => (
-        <span key={movie.id}>{movie.original_title}</span>
+        <Card
+          key={movie.id}
+          id={movie.id}
+          poster={movie.poster_path}
+          title={movie.original_title}
+          release_date={movie.release_date}
+        />
       ))}
     </div>
   )
