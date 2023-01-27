@@ -18,14 +18,18 @@ const Movies = () => {
     requestTrendingMovies()
   }, [])
 
+  if (!trendingMovies.length) {
+    return <p>Carregando...</p>
+  }
+
   return (
-    <div className="movie">
+    <div className="movies">
       {trendingMovies.map((movie) => (
         <Card
           key={movie.id}
           id={movie.id}
           poster={movie.poster_path}
-          original_title={movie.original_title}
+          title={movie.original_title}
           release_date={movie.release_date}
         />
       ))}
